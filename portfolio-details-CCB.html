@@ -397,6 +397,78 @@
                       </div>
                     </div>     
 
+                    <div class="more-info-block">
+                      <h3 class="more-info-title">Customer Persona</h3>
+                      <ul class="list-unstyled"><p>Based on our research, we’ve identified four core credit-card personas among Techcombank’s existing EMAFF and Mass AFF customers. Each persona will anchor a dedicated campaign, ensuring that messaging, offers, and media placements are finely tuned to the audience most likely to respond.</p> 
+                     </ul>
+                   </div>
+                    <div class="inner-images">
+                      <div class="row g-3">
+                        <div class="image-item">
+                          <a href="assets/img/projects/CCB/X4/TCBCCB_RS 7.png" class="popup-image">
+                            <img src="assets/img/projects/CCB/TCBCCB_RS 7.png" alt="Overview Screenshot">
+                          </a>
+                        </div>
+                    </div>    
+
+                    <div class="inner-images">
+                      <div class="row g-3">
+                        <div class="image-item">
+                          <a href="assets/img/projects/CCB/X4/TCBCCB_RS 8.png" class="popup-image">
+                            <img src="assets/img/projects/CCB/TCBCCB_RS 8.png" alt="Overview Screenshot">
+                          </a>
+                        </div>
+                    </div>                       
+                    <div class="more-info-block">
+                      <h3 class="more-info-title">Card Acquisition Campaign Idea</h3>
+                      <ul class="list-unstyled"><p>By combining all the insights from customer analysis and their journey when deciding to open a credit card, along with Techcombank's existing schemes—including the card's CVP, usage schemes, and acquisition promotions—we can develop more targeted and customer-focused campaigns for credit cards.</p> 
+                     </ul>
+                   </div>
+                    <div class="inner-images">
+                    <div class="row g-3">
+                      <div class="image-item">
+                        <a href="assets/img/projects/CCB/X4/TCBCCB_Camp 1.png" class="popup-image">
+                          <img src="assets/img/projects/CCB/TCBCCB_Camp 1.png" alt="Overview Screenshot">
+                        </a>
+                      </div>
+                    </div>                       
+
+                    <div class="more-info-block">
+                      <h3 class="more-info-title">Campaign Details</h3>
+                        <h5 class="more-info-subtitle">Digital Journey & Campaign Flow Section 1: Awareness to Apply for Targeted & Trigger Approach</h5>
+                          <ul class="list-unstyled"><p>This section is one of the digital journey for paid channel, targeted & triggered campaign. It includes:</p> 
+                            <li>• Acquisition stage break down from ‘Awareness’ to ‘Apply’.</li>
+                            <li>• The other organic touchpoint will be included in the next slide.</li>
+                            <li>• Each flow includes: high level content angles, touchpoints & using Martech capabilities to execute every customer touchpoint on digital channel</li>
+                         </ul>
+                   </div> 
+                    <div class="inner-images">
+                    <div class="row g-3">
+                      <div class="image-item">
+                        <a href="assets/img/projects/CCB/X4/TCBCCB_Camp 2.png" class="popup-image">
+                          <img src="assets/img/projects/CCB/TCBCCB_Camp 2.png" alt="Overview Screenshot">
+                        </a>
+                      </div>
+                    </div>   
+
+                    <div class="more-info-block">
+                        <h5 class="more-info-subtitle">Digital Journey & Campaign Flow Section 2: Awareness to Apply for Organic Approach</h5>
+                          <ul class="list-unstyled"><p>This section is one of the campaign flow for organic customer in-app:</p> 
+                            <li>• Acquisition stage break down from ‘Awareness’ to ‘Apply’.</li>
+                            <li>• The rest of the journey for Activation will be in the following slide.</li>
+                            <li>• Each flow includes: high level content angles, touchpoints & using Martech capabilities to execute every customer touchpoint on digital channel</li>
+                         </ul>
+                   </div>
+
+                  <div class="inner-images">
+                    <div class="row g-3">
+                      <div class="image-item">
+                        <a href="assets/img/projects/CCB/X4/TCBCCB_Camp 3.png" class="popup-image">
+                          <img src="assets/img/projects/CCB/TCBCCB_Camp 3.png" alt="Overview Screenshot">
+                        </a>
+                      </div>
+                    </div>
+                  </div>   
 
                     <div class="prev-and-next-btn">
                       <button class="btn btn-prev">Previous</button>
@@ -451,6 +523,72 @@
   <script src="assets/js/clipboard.min.js"></script>
   <script src="assets/js/slick.min.js"></script>
   <script src="assets/js/script.js"></script>
+
+  <!-- Zoom Function -->
+  <script>
+    $(document).ready(function() {
+      $('.popup-image').magnificPopup({
+        type: 'image',
+        gallery: { enabled: false },
+        zoom: {
+          enabled: true,
+          duration: 300,
+          easing: 'ease-in-out',
+          opener: function(openerElement) {
+            return openerElement.is('img') 
+              ? openerElement 
+              : openerElement.find('img');
+          }
+        },
+        removalDelay: 300,
+        mainClass: 'mfp-with-zoom',
+        callbacks: {
+          open: function() {
+            // once the popup is open, wire up click-to-toggle zoom
+            var $img = this.content.find('img')
+              .css('cursor', 'zoom-in')
+              .on('click', function(e) {
+                var $this = $(this),
+                    isZoomed = $this.data('zoomed'),
+                    off = $this.offset(),
+                    clickX = e.pageX - off.left,
+                    clickY = e.pageY - off.top,
+                    w = $this.width(),
+                    h = $this.height(),
+                    originX = (clickX / w * 100) + '%',
+                    originY = (clickY / h * 100) + '%';
+
+                if (!isZoomed) {
+                  // zoom in around the click point
+                  $this.css({
+                    'transform-origin': originX + ' ' + originY,
+                    'transform': 'scale(4)'
+                  })
+                  .data('zoomed', true)
+                  .css('cursor', 'zoom-out');
+                } else {
+                  // reset back to normal
+                  $this.css({
+                    'transform-origin': '',
+                    'transform': ''
+                  })
+                  .data('zoomed', false)
+                  .css('cursor', 'zoom-in');
+                }
+              });
+          }
+        }
+      });
+    });
+  </script>
+
+  <!-- Add this CSS so the scale animates smoothly: -->
+  <style>
+    .mfp-img {
+      transition: transform 0.3s ease-in-out;
+    }
+  </style>
+
 </body>
 
 
